@@ -51,3 +51,36 @@ where id = 2
 
 #selecionando todos os dados da tabela pessoas
 select * from pessoas;
+
+alter table pessoas
+add column  profissao varchar(10);
+
+
+mysql> alter table pessoas
+    -> drop column profissao;
+
+mysql> alter table pessoas
+    -> add column profissao varchar(10) after nome;
+
+mysql> update pessoas
+    -> set profissao = ''
+    -> where profissao is null or profissao = 'invalid';
+
+mysql> alter table pessoas modify column profissao varchar(20) not null default '';
+
+mysql> alter table pessoas
+    -> change column profissao prof varchar(20) not null default '';
+
+mysql> alter table pessoas
+    -> rename to people;
+
+mysql> create table if not exists unidade(
+    -> nome varchar(20) not null unique,
+    -> endereco varchar(50) not null
+    -> )default charset=utf8;
+
+
+mysql> alter table unidade 
+    -> add column idunidade int first;
+
+mysql> alter table unidade  add primary key (idunidade);
